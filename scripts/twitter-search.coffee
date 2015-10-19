@@ -1,3 +1,4 @@
+cron = require('cron').CronJob
 TWIT = require "twit"
 MENTION_ROOM = process.env.HUBOT_TWITTER_MENTION_ROOM || "random"
 MAX_TWEETS = 5
