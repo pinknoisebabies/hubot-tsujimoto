@@ -1,7 +1,7 @@
 hpMax = 100
 hpMin = 0
 cron = require('cron').CronJob
-magic = require('magic.json')
+magic = require('/magic.json')
 options = { room: 'random' }
 
 module.exports = (robot) ->
