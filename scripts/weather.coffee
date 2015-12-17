@@ -1,6 +1,6 @@
 module.exports = (robot) ->
   robot.hear /(.*)の天気教え(.*)/i, (msg) ->
-   switch msg.match[1]
+    switch msg.match[1]
       when '今日'
         day = 0
       when '明日'
@@ -10,9 +10,13 @@ module.exports = (robot) ->
       else
         day = 3
         break
-    request = msg.http('http://weather.livedoor.com/forecast/webservice/json/v1?city=130010')
+    a = 'http://weather.livedoor.com/forecast/webservice/json/v1?city=130010'
+    request = msg.http(a)
     .get()
     request (err, res, body) ->
       json = JSON.parse body
-      if day == 3 then forecast = 'わからんす' else forecast = json['forecasts'][day]['telop']
+      if day == 3
+        forecast = 'わからんす'
+      else
+        forecast = json['forecasts'][day]['telop']
       msg.reply forecast
