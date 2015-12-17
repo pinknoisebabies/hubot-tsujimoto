@@ -38,7 +38,6 @@ module.exports = (robot) ->
     hp = attack user, damage
     msg.send `${user}は${magicName}で攻撃された. ${damage}のダメージ！\nHP: ${hp}/${hpMax}`
 
-  // タイムラインを全て形態素解析する
   robot.hear /.*/, (msg) ->
     if !msg.message.tokenized
       return
@@ -46,8 +45,7 @@ module.exports = (robot) ->
     user = msg.message.user.name
     damage = 5
 
-    // ネガティブワードをキャッチする
-    msg.message.tokenized.forEach (token) ->
+    msg.message.tokenized.forEach (token)
       if /((疲|つか)れる)|((辛|つら)い)|((眠|ねむ)い)/.test(token.basic_form)
         hp = attack user, damage
         msg.send `${user}は社会から攻撃を受けた！${damage}のダメージ！\nHP: ${hp}/${hpMax}`
