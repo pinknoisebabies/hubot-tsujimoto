@@ -50,7 +50,7 @@ module.exports = (robot) ->
 
   robot.respond /status/, (msg) ->
     list = robot.brain.data
-    status = new Array
+    status = []
     for key in list._private
       status.push "#{key} HP: #{list._private[key]}/#{hpMax}"
     msg.send (status.join "\n")
