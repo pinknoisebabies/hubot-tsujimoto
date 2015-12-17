@@ -1,8 +1,33 @@
 hpMax = 100
 hpMin = 0
 cron = require('cron').CronJob
-magic = require('/magic.json')
 options = { room: 'random' }
+
+magic =
+    0:
+      "name": 'サンダー'
+      "point": 5
+    1:
+      "name": 'ファイアー'
+      "point": 5
+    2:
+      "name": 'ウォータ'
+      "point": 5
+    3:
+      "name": 'ブリザド'
+      "point": 5
+    4:
+      "name": 'サンダガ'
+      "point": 20
+    5:
+      "name": 'ファイガ'
+      "point": 20
+    6:
+      "name": 'ウォータガ'
+      "point": 20
+    7:
+      "name": 'ブリザガ'
+      "point": 20
 
 module.exports = (robot) ->
   cron '0 0 9 * * 6', () ->
