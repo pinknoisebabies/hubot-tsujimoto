@@ -75,7 +75,7 @@ module.exports = (robot) ->
         hp = attack user, damage
         msg.send '#{user}は社会から攻撃を受けた！#{damage}のダメージ！\nHP: #{hp}/#{hpMax}'
 
-  attack(user, damage) ->
+  attack = (user, damage) ->
     hp = robot.brain.get user
     if hp == null
       hp = hpMax
@@ -83,7 +83,7 @@ module.exports = (robot) ->
     robot.brain.set user, hp
     return hp
 
-  care(user, point) ->
+  care = (user, point) ->
     hp = robot.brain.get user
     if hp == null
       hp = hpMax
