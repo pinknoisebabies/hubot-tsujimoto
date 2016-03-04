@@ -33,7 +33,7 @@ module.exports = (robot) ->
   cron '0 0 9 * * 6', () ->
     list = robot.brain.data
     for key in list._private
-      robot.brain.set(key, hpMax)
+      robot.brain.set key, hpMax
     robot.send options, '全回復しました'
 
   robot.respond /attack (\w+)/i, (msg) ->
