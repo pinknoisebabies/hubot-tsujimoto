@@ -5,8 +5,8 @@ module.exports = (robot) ->
     month = d.getMonth() + 1 # 月
     day = d.getDate() # 日
 
-    request = msg.http('http://api.jugemkey.jp/api/horoscope/free/#{year}/#{month}/#{day}').get()
+    request = msg.http("http://api.jugemkey.jp/api/horoscope/free/#{year}/#{month}/#{day}").get()
     request (err, res, body) ->
       json = JSON.parse body
-      forecast = json['horoscope']['#{year}/#{month}/#{day}'][0]['sign']
+      forecast = json['horoscope']["#{year}/#{month}/#{day}"][0]['sign']
       msg.reply forecast
