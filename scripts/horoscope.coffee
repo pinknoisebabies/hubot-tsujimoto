@@ -13,8 +13,5 @@ module.exports = (robot) ->
         return (a.rank > b.rank) ? -1 : 1
       )
 
-      message = ""
       for val in today
-        message += (val.rank + "位: " + val.sign + " ラッキーカラー: " + val.color + " ラッキーアイテム: " + val.item + "\n")
-
-      msg.send message
+        msg.send (val.rank + "位: " + val.sign + " ラッキーカラー: " + val.color + " ラッキーアイテム: " + val.item + "\n")
