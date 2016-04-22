@@ -2,7 +2,7 @@ module.exports = (robot) ->
   robot.hear /(.*)今日の占いカウントダウン(.*)/i, (msg) ->
     d = new Date
     year = d.getFullYear() # 年（西暦）
-    month = d.getMonth() + 1 # 月
+    month = ('0' + (d.getMonth() + 1)).slice( -2 ) # 月
     day = d.getDate() # 日
 
     request = msg.http("http://api.jugemkey.jp/api/horoscope/free/#{year}/#{month}/#{day}").get()
