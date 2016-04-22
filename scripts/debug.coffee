@@ -1,11 +1,37 @@
-# request = require('request')
+horoscope = [
+  {
+    'rank': 4
+  },
+  {
+    'rank': 1
+  }
+]
 
-d = new Date
-year = d.getFullYear() # 年（西暦）
-month = d.getMonth() + 1 # 月
-month = ('0' + (d.getMonth() + 1)).slice( -2 )
-date = d.getDate() # 日
-console.log("http://api.jugemkey.jp/api/horoscope/free/#{year}/#{month}/#{date}")
-console.log("#{year}")
+# horoscope = objectSort horoscope
 
-# request = msg.http('http://api.jugemkey.jp/api/horoscope/free/' + year + '/' + month + '/' + date).get()
+horoscope.sort((a, b) ->
+  console.log (a.rank < b.rank)
+  return (a.rank > b.rank) ? -1 : 1
+)
+
+console.log horoscope
+
+
+ranking = (a, b) ->
+  console.log 's'
+  return (a.rank > b.rank) ? -1 : 1
+
+objectSort = (object) ->
+  sorted = {}
+  array = []
+
+  for key in object
+    if object.hasOwnProperty key
+      array.push key
+
+  array.sort()
+
+  for i in [0..array.length]
+    sorted[array[i]] = object[array[i]]
+
+  return sorted

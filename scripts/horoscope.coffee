@@ -8,5 +8,13 @@ module.exports = (robot) ->
     request = msg.http("http://api.jugemkey.jp/api/horoscope/free/#{year}/#{month}/#{day}").get()
     request (err, res, body) ->
       json = JSON.parse body
-      forecast = json['horoscope']["#{year}/#{month}/#{day}"][0]['sign']
-      msg.reply forecast
+      today = json['horoscope']["#{year}/#{month}/#{day}"]
+      today.sort((a, b) ->
+        return (a.rank > b.rank) ? -1 : 1
+      )
+
+      message = ""
+      for val in today
+        message += today.rank + "位: " + today.sign + " ラッキーカラー: " + today.color + " ラッキーアイテム: " + today.item + "\n"
+
+      msg.reply message
