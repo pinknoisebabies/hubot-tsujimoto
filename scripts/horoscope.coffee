@@ -15,6 +15,6 @@ module.exports = (robot) ->
 
       message = ""
       for val in today
-        message += today.rank + "位: " + today.sign + " ラッキーカラー: " + today.color + " ラッキーアイテム: " + today.item + "\n"
+        message += val.rank + "位: " + val.sign + " ラッキーカラー: " + val.color + " ラッキーアイテム: " + val.item + "\n"
 
       msg.reply message
