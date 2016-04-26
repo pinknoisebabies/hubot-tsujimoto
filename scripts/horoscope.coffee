@@ -14,4 +14,5 @@ module.exports = (robot) ->
       )
 
       for val in today
-        msg.send (val.rank + "位: " + val.sign + " ラッキーカラー: " + val.color + " ラッキーアイテム: " + val.item + "\n")
+        msg.send val.rank + "位: " + val.sign + " ラッキーカラー: " + val.color + " ラッキーアイテム: " + val.item
+        
