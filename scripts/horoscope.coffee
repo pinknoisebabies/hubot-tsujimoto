@@ -9,10 +9,8 @@ module.exports = (robot) ->
     request (err, res, body) ->
       json = JSON.parse body
       today = json['horoscope']["#{year}/#{month}/#{day}"]
-      today.sort((a, b) ->
-        return (a.rank > b.rank) ? -1 : 1
-      )
+
+      today.sort (a, b) -> b.rank - a.rank
 
       for val in today
         msg.send val.rank + "位: " + val.sign + " ラッキーカラー: " + val.color + " ラッキーアイテム: " + val.item
-        
